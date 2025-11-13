@@ -1,0 +1,372 @@
+:root {
+    --bg: hsl(0, 0%, 100%);
+    --fg: #f8f5f0;
+    --muted: #6b7d73;
+    --page-vertical-padding: 4rem;   /* desktop vertical whitespace */
+    --page-horizontal-padding: 8rem; /* horizontal gutter */
+    --bike-font-size: 1.125rem;
+    --bike-text-color: #0a1f13;
+    --bike-heading-color: #05240f;
+    --bike-meta-color: #4f6d5f;
+    --bike-accent-color: #e8e0d0a4;
+    --bike-spec-border: #c9c3ad;
+    --bike-content-width: 60ch;
+    --bike-hero-max-width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    padding-top: var(--page-vertical-padding);
+    padding-bottom: 0;
+    padding-inline: var(--page-horizontal-padding);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.alfa-slab-one-regular {
+  font-family: "Alfa Slab One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--page-horizontal-padding); /* keep consistent horizontal gutters */
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    border-bottom: 5px solid #073d06;
+}
+
+.site-header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+}
+
+.brand {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+nav a {
+    color: #23401eff;
+    font-size: 1.2rem;
+    font-family: "Playwrite DE LA", sans-serif;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+nav a:hover {
+    color: #4e8e43ff;
+}
+
+.wrap>h1 {
+    margin-top: 1.25rem;
+}
+
+/* Base header styling */
+.site-header {
+  padding: 1rem 2rem;
+  margin-bottom: 50px;
+
+}
+.header-container {
+  display: flex;
+  flex-direction: column;     /* stack logo and nav vertically */
+  align-items: center;        /* center both logo + nav */
+}
+
+.site-logo {
+  max-width: 250px;
+  height: auto;
+  margin-bottom: 0.75rem;     /* space between logo and nav */
+}
+
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  justify-content: center;    /* center nav links under logo */
+}
+
+/* Mobile: row with hamburger */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between; /* logo left, burger right */
+    align-items: center;
+  }
+
+  .site-logo {
+    max-width: 150px;
+    margin-bottom: 0; /* no gap in row layout */
+  }
+
+  .site-nav {
+    display: none; /* hidden until toggled */
+    width: 100%;
+    margin-top: 0.75rem;
+  }
+
+  .site-header[data-menu-open="true"] .site-nav {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;  /* left-align mobile menu */
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+}
+
+/* Bike hero image centered */
+.bike-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-direction: column;
+}
+
+.bike-hero img.hero {
+  width: 100%;
+  border-radius: 6px;
+  max-width: var(--bike-hero-max-width);
+  height: auto;
+}
+
+/* Bike detail page styling – override via CSS vars on .bike */
+.bike {
+  font-size: var(--bike-font-size);
+  color: var(--bike-text-color);
+  line-height: 1.75;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bike h1 {
+  font-family: "Source Sans Pro";
+  color: var(--bike-heading-color);
+  font-size: calc(var(--bike-font-size) * 2);
+  margin-bottom: 0.25rem;
+}
+
+.bike .meta {
+  color: var(--bike-meta-color);
+  font-family: "Lora";
+  font-size: calc(var(--bike-font-size));
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.bike .prose {
+  background: rgba(255, 255, 255, 0.85);
+  font-family: 'Courier New', Courier, monospace;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--bike-spec-border);
+  width: min(100%, var(--bike-content-width));
+  margin-inline: auto;
+}
+
+.bike .bike-closing,
+.bike .blurb,
+.bike .bike-extra {
+  width: min(100%, var(--bike-content-width));
+  margin-inline: auto;
+}
+
+.bike .bike-closing img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.bike .specs {
+  background: var(--bike-accent-color);
+  font-family: "Courier New", Courier, monospace;
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid var(--bike-spec-border);
+  width: min(100%, var(--bike-content-width));
+  margin-inline: auto;
+}
+
+.bike .specs h2 {
+  margin-top: 0;
+  font-size: calc(var(--bike-font-size)) * 2;
+  color: var(--bike-heading-color);
+  letter-spacing: 0.03em;
+}
+
+.bike .specs dl {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* adjust widths */
+  gap: 0.9rem 1.25rem;
+  margin: 0;
+}
+
+.bike .specs dt {
+  font-weight: 500;
+  font-size: calc(var(--bike-font-size));
+  color: var(--bike-heading-color);
+}
+
+.bike .specs dd {
+  font-size: calc(var(--bike-font-size));
+  margin: 0;
+}
+
+.bike .gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.bike .gallery .tile {
+  margin: 0;
+}
+
+.bike-gallery {
+  width: 100%;
+  max-width: var(--bike-hero-max-width);
+  margin-inline: auto;
+}
+
+.bike-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.blurb {
+  width: min(100%, var(--bike-content-width));
+  margin: 2rem auto 0 auto;
+  font-size: calc(var(--bike-font-size) * 1.1);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.8;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* desktop: 3 per row */
+  gap: 16px;
+}
+
+.image-grid figure {
+  margin: 0;
+}
+
+.image-grid img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-grid img:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.image-grid figcaption {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: underline;
+  font-family: "Arial";
+  color: rgb(2, 32, 2);
+  text-align: Left;
+}
+
+.image-grid figcaption:hover {
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Arial";
+  color: rgb(18, 100, 18);
+  text-align: Left;
+}
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Footer with centered emblem */
+.site-footer {
+  margin-top: 6rem;
+  padding: 2rem 0 2rem;
+  text-align: center;
+  background-color: #c0debe;
+  color: rgb(0, 0, 0);
+  font-family: "DM Serif Display";
+  font-weight: 350;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 2px solid #b3966a;
+}
+
+.footer-logo {
+  max-width: 150px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 0;
+  display: block;
+}
+
+/* Responsive scaling of page whitespace */
+@media (max-width: 1024px) {
+  :root {
+    --page-vertical-padding: 3rem;
+    --page-horizontal-padding: 0.9rem;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --page-vertical-padding: 1.25rem;
+    --page-horizontal-padding: 0.75rem;
+  }
+}

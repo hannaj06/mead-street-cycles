@@ -1,0 +1,61 @@
+---
+layout: layouts/base.njk
+---
+<article class="bike">
+    <header class="bike-hero">
+        {% if hero %}
+        <img class="hero" src="{{ hero }}" alt="{{ title }}" data-enlarge>
+        {% endif %}
+        <h1>{{ title }}</h1>
+        <p class="meta">
+            {% if year %}{{ year }} · {% endif %}
+            {% if make %}{{ make }}{% if model %} {{ model }}{% endif %}{% endif %}
+            {% if tags and tags.length %} · {{ tags | join(", ") }}{% endif %}
+        </p>
+    </header>
+
+
+{% if description %}
+<div class="prose">{{ description | markdown | safe }}</div>
+{% endif %}
+
+
+    {% if specs %}
+    <section class="specs">
+        <h2>Components:</h2>
+        <dl>
+            {% for key, value in specs %}
+            <dt>{{ key }}</dt>
+            <dd>{{ value }}</dd>
+            {% endfor %}
+        </dl>
+    </section>
+    {% endif %}
+
+
+    {% if gallery and gallery.length %}
+    <section class="gallery bike-gallery">
+        {% for img in gallery %}
+        <figure class="tile">
+            <img src="{{ img }}" alt="{{ title }} photo {{ loop.index }}" loading="lazy" data-enlarge>
+        </figure>
+        {% endfor %}
+    </section>
+
+
+    {% if blurb %}
+    <section class="blurb">
+        {{ blurb | safe }}
+    </section>
+    {% endif %}
+
+
+    </section>
+    {% endif %}
+
+    {% if closing_image %}
+    <div class="bike-closing">
+        <img src="{{ closing_image }}" alt="{{ title }} closing image" loading="lazy">
+    </div>
+    {% endif %}
+</article>
