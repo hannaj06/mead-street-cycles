@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block head %}
+        {% include "partials/head.njk" %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block nav %}
+        {% include "partials/nav.njk" %}
+    {% endblock %}
+
+    <main class="site-main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <section class="image-grid">
+        <figure>
+            <a href="/bikes/billy/index.html"><img src="/images/bikes/univega.jpg" alt="Univega cafe bike"></a>
+            <figcaption>Univega - "Billy"</figcaption>
+        </figure>
+
+
+        <figure>
+            <a href="/bikes/univega_alpina/index.html"><img src="/images/bikes/univega_alpina.jpg" alt="Bike Photo"></a>
+            <figcaption>Univega Alphina</figcaption>
+        </figure>
+
+        <figure>
+            <a href="bikes/elektra/index.html"><img src="/images/bikes/trek_mountaintrack.jpg" alt="Trek Mountaintrack">
+            <figcaption>Trek Mountaintrack - "Elektra"</figcaption></a>
+        </figure>
+
+        <figure>
+            <a href="/bikes/jamis_ventura/index.html"><img src="/images/bikes/jamis_ventura.jpg" alt="Jamis Ventura"></a>
+            <figcaption>Jamis Ventura - "Vicki"</figcaption>
+        </figure>
+
+        <figure>
+            <a href="/bikes/specialized_allez/index.html"><img src="/images/bikes/P1060548.jpg" alt="Bike Photo"></a>
+            <figcaption>Specalized Allez</figcaption>
+        </figure>
+
+        <figure>
+            <a href="/bikes/canyon_endurance/index.html"><img src="/images/bikes/canyon_endurance.jpg" alt="Canyon Endurance"></a>
+            <figcaption>Canyon Endurance</figcaption>
+        </figure>
+
+
+        <figure>
+            <a href="/bikes/gary_fisher_tassajara/index.html"><img src="/images/bikes/P1060577.jpg" alt="Bike Photo"></a>
+            <figcaption>Gary Fisher Tassajara</figcaption>
+        </figure>
+
+
+        <figure>
+            <a href="/bikes/cannondale_cad2/index.html"><img src="/images/bikes/cannondale_cad2.jpg" alt="Marin Gravel"></a>
+            <figcaption>Cannondale CAD2</figcaption>
+        </figure>
+
+        <figure>
+            <a href="/bikes/raleigh/index.html"><img src="/images/bikes/P1060391-Enhanced-NR.jpg" alt="Bike Photo"></a>
+            <figcaption>Raleigh</figcaption>
+        </figure>
+
+    </section>
+    {% block footer %}
+        {% include "partials/footer.njk" %}
+    {% endblock %}
+</body>
+
+</html>

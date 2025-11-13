@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block head %}
+        {% include "partials/head.njk" %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block nav %}
+        {% include "partials/nav.njk" %}
+    {% endblock %}
+
+    <main class="site-main">
+        {{ content | safe }}
+    </main>
+
+    {% block footer %}
+        {% include "partials/footer.njk" %}
+    {% endblock %}
+</body>
+
+</html>
