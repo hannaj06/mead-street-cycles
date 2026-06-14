@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+---
+<section class="about">
+  <div class="about-content">
+
+    {% if title %}
+    <h1>{{ title }}</h1>
+    {% endif %}
+
+    {% if blurb %}
+    <div class="about-blurb">
+      {{ blurb | markdown | safe }}
+    </div>
+    {% endif %}
+
+  </div>
+    {% if image %}
+  <div class="about-media">
+    <img src="{{ image }}" alt="{{ image_alt or title }}" loading="lazy">
+  </div>
+  {% endif %}
+</section>
