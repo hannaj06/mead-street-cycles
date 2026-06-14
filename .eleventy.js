@@ -1,10 +1,10 @@
-const markdownIt = require("markdown-it");
+const markdownIt = require('markdown-it');
 
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addWatchTarget("src/styles/site.css");
-  eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/styles");
-  eleventyConfig.addPassthroughCopy("src/scripts");
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addWatchTarget('src/styles/site.css');
+  eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('src/styles');
+  eleventyConfig.addPassthroughCopy('src/scripts');
 
   const md = markdownIt({
     html: true,
@@ -12,15 +12,15 @@ module.exports = function(eleventyConfig) {
     linkify: true,
   });
 
-  eleventyConfig.addFilter("markdown", (content = "") => md.render(content));
+  eleventyConfig.addFilter('markdown', (content = '') => md.render(content));
 
   return {
     dir: {
-      input: "src",
-      includes: "_includes",
-      output: "_site",
+      input: 'src',
+      includes: '_includes',
+      output: '_site',
     },
-    markdownTemplateEngine: "njk",
-    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
   };
 };

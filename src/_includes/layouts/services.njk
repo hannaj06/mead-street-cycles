@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+---
+<section class="services">
+  <h1 class="services__title">{{ title }}</h1>
+
+  {% for section in sections %}
+  <div class="services__section">
+    <h2 class="services__section-title">{{ section.title }}</h2>
+
+    {% for item in section.items %}
+    <div class="services__item">
+      <span class="services__name">{{ item.name }}</span>
+      <span class="services__dots" aria-hidden="true"></span>
+      <span class="services__price">
+        {{ item.price }}{% if item.note %} <span class="services__note">{{ item.note }}</span>{% endif %}
+      </span>
+    </div>
+    {% if item.sub_note %}
+    <p class="services__item-note">{{ item.sub_note }}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endfor %}
+
+  {% if rebuild %}
+  <div class="services__rebuild">
+    <div class="services__item services__item--rebuild">
+      <span class="services__name">Full bike rebuild</span>
+      <span class="services__dots" aria-hidden="true"></span>
+      <span class="services__price">{{ rebuild.price }}</span>
+    </div>
+    {% if rebuild.note %}
+    <p class="services__rebuild-note">{{ rebuild.note }}</p>
+    {% endif %}
+  </div>
+  {% endif %}
+</section>

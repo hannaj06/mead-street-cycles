@@ -1,23 +1,45 @@
 (function () {
-  const header = document.querySelector(".site-header");
-  const btn = document.querySelector(".nav-toggle");
-  const nav = document.getElementById("primary-nav");
+  const wrapper = document.querySelector('[data-nav="wrapper"]');
+  if (!wrapper) return;
 
-  if (!header || !btn || !nav) return;
+  const toggle = wrapper.querySelector('[data-nav-toggle]');
+  const menu = wrapper.querySelector('[data-nav-menu]');
 
-  btn.addEventListener("click", () => {
-    const open = header.getAttribute("data-menu-open") === "true";
-    header.setAttribute("data-menu-open", String(!open));
-    btn.setAttribute("aria-expanded", String(!open));
+  if (!toggle || !menu) return;
+
+  const isOpen = () => wrapper.getAttribute('data-menu-open') === 'true';
+
+  const openMenu = () => {
+    wrapper.setAttribute('data-menu-open', 'true');
+    toggle.setAttribute('aria-expanded', 'true');
+    menu.removeAttribute('aria-hidden');
+  };
+
+  const closeMenu = () => {
+    wrapper.setAttribute('data-menu-open', 'false');
+    toggle.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+  };
+
+  closeMenu();
+
+  toggle.addEventListener('click', () => {
+    if (isOpen()) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
 
-  // Close menu if user tabs/clicks outside on mobile
-  document.addEventListener("click", (e) => {
-    const open = header.getAttribute("data-menu-open") === "true";
-    if (!open) return;
-    if (!header.contains(e.target)) {
-      header.setAttribute("data-menu-open", "false");
-      btn.setAttribute("aria-expanded", "false");
-    }
+  document.addEventListener('click', (event) => {
+    if (!isOpen()) return;
+    if (wrapper.contains(event.target)) return;
+    closeMenu();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !isOpen()) return;
+    closeMenu();
+    toggle.focus();
   });
 })();
