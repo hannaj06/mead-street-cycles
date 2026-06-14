@@ -51,6 +51,7 @@ body {
 .site-header {
   position: sticky;
   top: 0;
+  z-index: 100;
   background: #fff;
   border-bottom: 5px solid #073d06;
   padding: 1rem 2rem;
