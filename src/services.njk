@@ -3,10 +3,34 @@ layout: layouts/services.njk
 title: "Services"
 
 sections:
+  - title: Tune Up
+    items:
+      - name: Basic tune up
+        price: $100
+        sub_note: brakes, shifting + hubs - adjustment only, no replacement parts included
+      - name: Pro tune up
+        price: $200
+        sub_note: includes all basic tune up services + pro bike clean
+
+  - title: Consultation
+    items:
+      - name: New/used bike purchase consultation
+        price: $50
+        sub_note: waived if you buy the bike and bring it in for a tune up or assembly
+
+  - title: Assembly
+    items:
+      - name: New bike assembly
+        price: $100
+        sub_note: for direct to consumer bikes
+
   - title: Cleaning
     items:
-      - name: Bike wash/clean
-        price: $10
+      - name: Basic bike wash/clean
+        price: $20
+      - name: Pro bike clean
+        price: $100
+        sub_note: Removing all components, degreasing, relube/hot wax, reassembly, full detail
       - name: Degrease existing chain/cassette
         price: $20
 
@@ -19,7 +43,10 @@ sections:
         price: $35
         note: /each
       - name: Tubeless setup
-        price: $20
+        price: $25
+        note: /wheel (sealant included)
+      - name: Tubeless sealant refresh
+        price: $10
         note: /wheel (sealant included)
 
   - title: Drivetrain
@@ -36,8 +63,6 @@ sections:
         price: $10
       - name: Bottom bracket replacement
         price: $30
-      - name: Crank replacement
-        price: $20
     
 
   - title: Brakes
@@ -46,7 +71,7 @@ sections:
         price: $15
         note: /each
       - name: Full disc service (Shimano)
-        price: $45
+        price: $50
         note: /each
         sub_note: pads, rotor + bleed
 
@@ -59,21 +84,20 @@ sections:
         price: $15
         note: /each
 
-  - title: Pedals
-    items:
-      - name: Pedal install
-        price: $15
-        note: (pair)
-
   - title: Bars
     items:
       - name: Bar swap
         price: $15
         sub_note: does not include regrip or recable
-      - name: Road bar tape install
-        price: $15
+      - name: Road bar tape wrap
+        price: $30
 
-rebuild:
-  price: "$150 + cost of parts"
-  note: Please allow up to two weeks.
+  - title: Custom build
+    items:
+      - name: Frame up build
+        price: $250
+        note: + cost of parts
+
+
+
 ---
