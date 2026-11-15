@@ -1,4 +1,13 @@
 (function () {
+  const hero = document.querySelector('[data-hero-fade]');
+  if (!hero) return;
+
+  window.setTimeout(() => {
+    hero.setAttribute('data-fade-active', 'true');
+  }, 3000);
+})();
+
+(function () {
   const wrapper = document.querySelector('[data-nav="wrapper"]');
   if (!wrapper) return;
 
