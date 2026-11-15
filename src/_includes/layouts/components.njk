@@ -1,0 +1,37 @@
+---
+layout: layouts/base.njk
+---
+<section class="components">
+  <h1 class="components__title">{{ components.title }}</h1>
+  {% if components.intro %}
+  <p class="components__intro">{{ components.intro }}</p>
+  {% endif %}
+
+  {% for category in components.categories %}
+  <div class="components__section">
+    <h2 class="components__section-title">{{ category.name }}</h2>
+
+    {% for item in category.items %}
+    <div class="components__item">
+      <h3 class="components__name">
+        {% if item.brand %}<span class="components__brand">{{ item.brand }}</span> {% endif %}{{ item.name }}
+      </h3>
+      {% if item.description %}
+      <p class="components__description">{{ item.description }}</p>
+      {% endif %}
+      {% if item.bikes and item.bikes.length %}
+      <ul class="components__bikes">
+        {% for slug in item.bikes %}
+        {% for bike in collections.all %}
+        {% if bike.page.fileSlug == slug %}
+        <li><a href="{{ bike.url }}">{{ bike.data.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</section>

@@ -341,6 +341,34 @@ nav a.nav-active {
   height: auto;
 }
 
+.hero-fade {
+  position: relative;
+  width: 100%;
+  max-width: var(--bike-hero-max-width);
+  margin-inline: auto;
+}
+
+.hero-fade img.hero {
+  display: block;
+}
+
+.hero-fade .hero-fade__next {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hero-fade[data-fade-active='true'] .hero-fade__next {
+  clip-path: inset(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade .hero-fade__next {
+    transition: none;
+  }
+}
+
 @media (width <= 800px) {
   .bike .title {
     width: 100%;
@@ -398,6 +426,23 @@ nav a.nav-active {
   width: 100%;
   max-width: var(--bike-hero-max-width);
   margin-inline: auto;
+}
+
+.blurb__images {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.blurb__images img {
+  flex: 1;
+  min-width: 0;
+  height: auto;
+  border-radius: 6px;
+}
+
+.bike-gallery--secondary {
+  margin-block: 1.5rem;
 }
 
 .bike-gallery img {
@@ -706,6 +751,75 @@ nav a.nav-active {
 
   .services__name {
     white-space: normal;
+  }
+}
+
+/* Components glossary page */
+.components {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+  color: var(--bike-text-color);
+}
+
+.components__title {
+  font-family: Lora, serif;
+  font-size: calc(var(--bike-font-size) * 2);
+  color: var(--bike-heading-color);
+  margin: 0 0 1rem;
+}
+
+.components__intro {
+  margin: 0 0 2rem;
+  color: var(--bike-meta-color);
+}
+
+.components__section {
+  margin-bottom: 2.5rem;
+}
+
+.components__section-title {
+  font-family: Lora, serif;
+  font-size: 1.1rem;
+  color: var(--bike-heading-color);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--bike-spec-border);
+}
+
+.components__item {
+  padding: 0.5rem 0;
+}
+
+.components__name {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.components__brand {
+  color: var(--bike-meta-color);
+  font-weight: normal;
+}
+
+.components__description {
+  margin: 0.25rem 0 0;
+}
+
+.components__bikes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+@media (width <= 600px) {
+  .components {
+    padding-top: 1rem;
   }
 }
 

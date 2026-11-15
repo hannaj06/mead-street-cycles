@@ -3,7 +3,12 @@ layout: layouts/base.njk
 ---
 <article class="bike">
     <header class="bike-hero">
-        {% if hero %}
+        {% if hero and hero_fade %}
+        <div class="hero-fade" data-hero-fade>
+            <img class="hero" src="{{ hero }}" alt="{{ title }}" data-enlarge>
+            <img class="hero hero-fade__next" src="{{ hero_fade }}" alt="{{ title }} alternate view" data-enlarge>
+        </div>
+        {% elif hero %}
         <img class="hero" src="{{ hero }}" alt="{{ title }}" data-enlarge>
         {% endif %}
         <h1>{{ title }}</h1>
@@ -41,15 +46,24 @@ layout: layouts/base.njk
         </figure>
         {% endfor %}
     </section>
-
+    {% endif %}
 
     {% if blurb %}
     <section class="blurb">
+        {% if secondary_gallery and secondary_gallery.length %}
+        {% set blurbParts = blurb.split('</p>') %}
+        {{ blurbParts[0] | safe }}</p>
+        <div class="gallery bike-gallery bike-gallery--secondary">
+            {% for img in secondary_gallery %}
+            <figure class="tile">
+                <img src="{{ img }}" alt="{{ title }} secondary photo {{ loop.index }}" loading="lazy" data-enlarge>
+            </figure>
+            {% endfor %}
+        </div>
+        {{ blurbParts.slice(1).join('</p>') | safe }}
+        {% else %}
         {{ blurb | safe }}
-    </section>
-    {% endif %}
-
-
+        {% endif %}
     </section>
     {% endif %}
 

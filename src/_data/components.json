@@ -1,0 +1,162 @@
+{
+  "title": "Components",
+  "intro": "A glossary of the parts that show up on the bikes in the portfolio.",
+  "categories": [
+    {
+      "name": "Tires",
+      "items": [
+        {
+          "name": "Billy Bonkers",
+          "brand": "Schwalbe",
+          "description": "A fast-rolling 26 inch mountain bike tire with a low center tread, popular for turning old mountain bikes into city bikes.",
+          "bikes": [
+            "billy",
+            "diamondback_sorrento",
+            "elektra",
+            "gary_fisher_aquila",
+            "trek_970",
+            "trek_antelope"
+          ]
+        },
+        {
+          "name": "Gravel King",
+          "brand": "Panaracer",
+          "description": "A supple gravel tire that rolls well on pavement and handles light dirt.",
+          "bikes": ["cannondale_cad2", "canyon_endurance"]
+        },
+        {
+          "name": "Road Cruiser",
+          "brand": "Schwalbe",
+          "description": "A classic gumwall tire for city, touring and vintage road bikes.",
+          "bikes": ["peugeot_carbolite", "raleigh"]
+        }
+      ]
+    },
+    {
+      "name": "Handlebars",
+      "items": [
+        {
+          "name": "LT riser",
+          "brand": "PRO",
+          "description": "A low-rise alloy mountain bike bar with a comfortable sweep for everyday riding.",
+          "bikes": ["trek_970"]
+        }
+      ]
+    },
+    {
+      "name": "Headsets",
+      "items": [
+        {
+          "name": "Forty",
+          "brand": "Cane Creek",
+          "description": "A sealed bearing headset that is a reliable upgrade for older frames.",
+          "bikes": ["trek_970"]
+        }
+      ]
+    },
+    {
+      "name": "Grips",
+      "items": [
+        {
+          "name": "GE1",
+          "brand": "Ergon",
+          "description": "An ergonomic grip with a wide wing that supports the palm and takes pressure off the hands on longer rides.",
+          "bikes": ["cannondale_cad2", "gary_fisher_aquila"]
+        },
+        {
+          "name": "ESI",
+          "brand": "ESI",
+          "description": "A soft silicone grip that is light and comfortable.",
+          "bikes": ["elektra", "gary_fisher_tassajara"]
+        },
+        {
+          "name": "Moondust",
+          "brand": "PRO",
+          "description": "A slim lock-on grip with a soft, tacky rubber compound.",
+          "bikes": ["trek_970"]
+        }
+      ]
+    },
+    {
+      "name": "Pedals",
+      "items": [
+        {
+          "name": "Stamp 1",
+          "brand": "Crankbrothers",
+          "description": "A flat platform pedal with replaceable pins for grip.",
+          "bikes": ["billy", "elektra"]
+        },
+        {
+          "name": "MTB flat pedal",
+          "brand": "Rockbros",
+          "description": "An affordable flat platform pedal.",
+          "bikes": [
+            "cannondale_cad2",
+            "diamondback_sorrento",
+            "gary_fisher_aquila",
+            "salsa_journeyer",
+            "trek_970",
+            "univega_alpina"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Drivetrain",
+      "items": [
+        {
+          "name": "GRX",
+          "brand": "Shimano",
+          "description": "Shimano's gravel-specific components, built for rough roads and wide gearing.",
+          "bikes": ["elektra", "jamis_renegade"]
+        },
+        {
+          "name": "Deore",
+          "brand": "Shimano",
+          "description": "Shimano's mid-level mountain bike line, durable with a wide gear range.",
+          "bikes": ["billy", "cannondale_cad2", "elektra", "jamis_renegade"]
+        },
+        {
+          "name": "Deore XT",
+          "brand": "Shimano",
+          "description": "Shimano's long-running high-end mountain bike group, a step above Deore and prized for durability.",
+          "bikes": ["trek_970"]
+        },
+        {
+          "name": "105",
+          "brand": "Shimano",
+          "description": "A step below Ultegra in the road line, well regarded for its shifting and value.",
+          "bikes": ["jamis_ventura", "specialized_allez", "standert_kreissage"]
+        },
+        {
+          "name": "Narrow wide chainring",
+          "brand": "Wolf Tooth",
+          "description": "A single chainring with alternating tooth widths that holds the chain without a front derailleur or guide.",
+          "bikes": ["trek_970"]
+        }
+      ]
+    },
+    {
+      "name": "Saddles",
+      "items": [
+        {
+          "name": "B17",
+          "brand": "Brooks",
+          "description": "A leather saddle that molds to the rider over time.",
+          "bikes": ["billy"]
+        }
+      ]
+    },
+    {
+      "name": "Bar tape",
+      "items": [
+        {
+          "name": "Service Course",
+          "brand": "Zipp",
+          "description": "A thin, tacky road bar tape.",
+          "bikes": ["canyon_endurance", "standert_kreissage"]
+        }
+      ]
+    }
+  ]
+}

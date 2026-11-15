@@ -7,7 +7,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 npm run dev      # start dev server with hot reload (http://localhost:8080)
 npm run build    # build to _site/
-npm run deploy   # build, sync to S3, and invalidate CloudFront cache
+```
+
+There is no `deploy` npm script. To deploy, run `npm run build` then sync to S3 (see README.md):
+
+```bash
+aws s3 sync _site s3://meadstreetcycles.com --delete
 ```
 
 There is no test suite. Linting runs automatically via pre-commit hooks (stylelint on CSS, Prettier on CSS/JS). To run manually:
@@ -25,7 +30,7 @@ This is an [Eleventy](https://11ty.dev) static site. Input is `src/`, output is 
 - `src/_includes/layouts/base.njk` — root HTML shell (head, nav, footer)
 - `src/_includes/layouts/home.njk` — extends base; contains the hardcoded bike image grid
 - `src/_includes/layouts/bike.njk` — extends base; renders all bike detail content from frontmatter
-- `src/_includes/layouts/about.njk`, `contact.njk` — extend base
+- `src/_includes/layouts/about.njk`, `contact.njk`, `services.njk` — extend base
 - `src/_includes/partials/` — nav and footer fragments included by layouts
 
 **Adding a new bike:**
@@ -45,6 +50,8 @@ specs:                  # key/value component list
   Tires: Brand 28mm
 gallery:                # array of close-up image paths
   - /images/close_ups/<slug>/photo.jpg
+secondary_gallery:      # optional; same format as gallery, rendered after the first blurb paragraph
+  - /images/close_ups/<slug>/photo.jpg
 blurb: |                # rendered as raw HTML
   <p>Story here.</p>
 closing_image: /images/close_ups/<slug>/final.jpg
@@ -53,6 +60,8 @@ closing_image: /images/close_ups/<slug>/final.jpg
 Then add the bike to the hardcoded grid in `src/_includes/layouts/home.njk` and add images under `src/images/bikes/` (hero) and `src/images/close_ups/<slug>/` (gallery). Images are passthrough-copied by Eleventy.
 
 **Global site data** (`src/_data/site.json`): title, description, author, and Instagram URL — available in all templates as `{{ site.title }}` etc.
+
+**Components glossary** (`src/_data/components.json`): categories of components, each with items (`name`, `brand`, `description`, `bikes` as a list of bike file slugs). Rendered at `/components/` by `src/components.njk` and `layouts/components.njk`, which link each item to its bike pages. Add new components here when adding a bike.
 
 **Styles** (`src/styles/site.css`): Single file. CSS custom properties on `:root` control theming (colors, spacing, font sizes). BEM naming convention enforced by stylelint. No ID selectors allowed.
 
